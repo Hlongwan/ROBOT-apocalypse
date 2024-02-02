@@ -69,11 +69,18 @@ GET /survivor/getNonInfectedSurvivors:
 Get a list of non-infected survivors.
 
 Robots Controller
+
 GET /robots/all:
 Retrieve a list of robots from the Robot CPU system.
+
 Resources Used
+
 Spring Boot
+
 PostgreSQL
+
 Gradle
+
 IntelliJ IDEA
+
 RestTemplate for API integration
