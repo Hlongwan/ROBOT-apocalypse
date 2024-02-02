@@ -1,88 +1,60 @@
 # ROBOT apocalypse
  developing a REST API 
 
-README for Robot Apocalypse Survivor System
+Overview
+Welcome to the Survivor API, your last hope in the midst of the robot apocalypse. This REST API is designed to help you manage information about survivors and resources, as well as provide crucial reports to aid the resistance.
 
-Project Overview
+Technologies Used
+Java: The API is implemented using Java and the Spring Boot framework.
 
-Welcome to the Robot Apocalypse Survivor System! In the midst of a global robotic takeover, this project aims to provide a REST API to manage information about survivors and their resources. As a last coding survivor, your mission is to implement key functionalities, including survivor registration, location updates, infection tracking, and integration with the Robot CPU system.
+PostgreSQL: The database is powered by PostgreSQL to store survivor and resource information.
 
-Use Cases
-1. Add Survivors to the Database
-A survivor includes essential details such as name, age, gender, ID, and last location (latitude, longitude).
-Each survivor has an inventory of resources, including Water, Food, Medication, and Ammunition.
-
-3. Update Survivor Location
-Survivors can update their last location by providing a new latitude and longitude.
-
-5. Flag Survivor as Infected
-Survivors can be marked as infected when at least three others report their contamination.
-
-7. Connect to the Robot CPU System
-Integration with the Robot CPU system to fetch a list of all robots and their known locations. Robots are categorized as Flying and Land robots.
-
-9. Reports
-Percentage of infected and non-infected survivors.
-Lists of infected and non-infected survivors.
-List of Robots.
-How to Run the Project
-Clone the Repository:
-
-
-
-Open Project in IntelliJ:
-
-Import the project into IntelliJ IDEA.
-Configure PostgreSQL:
-
-Set up a PostgreSQL database and update the application.properties file with the database URL, username, and password.
-Build and Run:
-
-Build and run the project using IntelliJ or run the ./gradlew bootRun command.
-Access Endpoints:
-
-The API will be accessible at http://localhost:8080
+IntelliJ IDEA: The development tool used for building and running the project.
 
 Endpoints
+1. Register Survivor
+Endpoint: POST /survivor/registerSurvivor
+Description: Register a survivor with their name, age, gender, ID, last location, and initial inventory of resources (Water, Food, Medication, Ammunition).
 
-Survivor Controller
-POST /survivor/registerSurvivor:
-Register a new survivor with details and an initial resource inventory.
+3. Register Resources
+Endpoint: POST /survivor/registerResources
+Description: Register additional resources to a survivor's inventory.
 
-POST /survivor/registerResources:
-Register resources for a survivor.
+5. Update Survivor Location
+Endpoint: PUT /survivor/{id}/update-location
+Description: Update the last location of a survivor by providing their ID, longitude, and latitude.
 
-GET /survivor/getAllSurvivors:
-Retrieve all survivors.
+7. Flag Survivor as Infected
+Endpoint: GET /survivor/getSurvivorStatus
+Description: Flag a survivor as infected when at least three other survivors report their contamination.
 
-PUT /survivor/{id}/update-location:
-Update survivor location based on the provided ID.
+9. Get All Survivors
+Endpoint: GET /survivor/getAllSurvivors
+Description: Retrieve a list of all registered survivors.
 
-GET /survivor/getSurvivorStatus:
-Get the infected status of a survivor.
+11. Reports
+6.1 Percentage of Infected and Non-Infected Survivors
+Endpoint: GET /survivor/getSurvivorPercentage
+Description: Get the percentage of infected and non-infected survivors.
 
-GET /survivor/getSurvivorPercentage:
-Get the percentage of infected and non-infected survivors.
+6.2 List of Infected Survivors
+Endpoint: GET /survivor/getInfectedSurvivors
+Description: Get a list of survivors marked as infected.
 
-GET /survivor/getInfectedSurvivors:
-Get a list of infected survivors.
+6.3 List of Non-Infected Survivors
+Endpoint: GET /survivor/getNonInfectedSurvivors
+Description: Get a list of survivors not marked as infected.
 
-GET /survivor/getNonInfectedSurvivors:
-Get a list of non-infected survivors.
+6.4 List of Robots
+Endpoint: GET /survivor/getRobots
+Description: Connect to the Robot CPU system to get a list of all robots and their known locations, categorized as Flying robots and Land robots.
 
-Robots Controller
+How to Run
 
-GET /robots/all:
-Retrieve a list of robots from the Robot CPU system.
+Clone the repository.
 
-Resources Used
+Open the project in IntelliJ IDEA.
 
-Spring Boot
+Configure the PostgreSQL database settings in application.properties.
 
-PostgreSQL
-
-Gradle
-
-IntelliJ IDEA
-
-RestTemplate for API integration
+Run the application.
