@@ -2,7 +2,9 @@
  developing a REST API 
 
 README for Robot Apocalypse Survivor System
+
 Project Overview
+
 Welcome to the Robot Apocalypse Survivor System! In the midst of a global robotic takeover, this project aims to provide a REST API to manage information about survivors and their resources. As a last coding survivor, your mission is to implement key functionalities, including survivor registration, location updates, infection tracking, and integration with the Robot CPU system.
 
 Use Cases
