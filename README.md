@@ -1,33 +1,79 @@
 # ROBOT apocalypse
  developing a REST API 
 
-Overview
-In the year 2050, the world has succumbed to a robot apocalypse, and you, a resilient software engineer, are the last hope for humanity. Your mission is to develop a REST API to manage survivors and resources amidst the chaos. This API is designed to run on Intellij, utilizing pgAdmin as the database.
+README for Robot Apocalypse Survivor System
+Project Overview
+Welcome to the Robot Apocalypse Survivor System! In the midst of a global robotic takeover, this project aims to provide a REST API to manage information about survivors and their resources. As a last coding survivor, your mission is to implement key functionalities, including survivor registration, location updates, infection tracking, and integration with the Robot CPU system.
 
-API Endpoints
+Use Cases
+1. Add Survivors to the Database
+A survivor includes essential details such as name, age, gender, ID, and last location (latitude, longitude).
+Each survivor has an inventory of resources, including Water, Food, Medication, and Ammunition.
 
-Add Survivors
-Endpoint: /survivor/registerSurvivor
-Method: POST
-Description: Register a survivor with a name, age, gender, ID, last location, and inventory of resources (Water, Food, Medication, Ammunition).
+3. Update Survivor Location
+Survivors can update their last location by providing a new latitude and longitude.
+
+5. Flag Survivor as Infected
+Survivors can be marked as infected when at least three others report their contamination.
+
+7. Connect to the Robot CPU System
+Integration with the Robot CPU system to fetch a list of all robots and their known locations. Robots are categorized as Flying and Land robots.
+
+9. Reports
+Percentage of infected and non-infected survivors.
+Lists of infected and non-infected survivors.
+List of Robots.
+How to Run the Project
+Clone the Repository:
 
 
-Update Survivor Location
-Endpoint: /survivor/{id}/update-location
-Method: PUT
-Description: Update a survivor's last location by providing new latitude and longitude.
 
-Flag Survivor as Infected
-Endpoint: /survivor/getSurvivorStatus
-Method: GET
-Description: Get the infected status of a survivor based on contamination reports from other survivors.
+Open Project in IntelliJ:
 
-Connect to Robot CPU
-Endpoint: /robots/all
-Method: GET
-Description: Connect to the Robot CPU system to retrieve a list of all robots and their known locations.
+Import the project into IntelliJ IDEA.
+Configure PostgreSQL:
 
-Reports
-Endpoint: /survivor/getSurvivorPercentage
-Method: GET
-Description: Get the percentage of infected and non-infected survivors.
+Set up a PostgreSQL database and update the application.properties file with the database URL, username, and password.
+Build and Run:
+
+Build and run the project using IntelliJ or run the ./gradlew bootRun command.
+Access Endpoints:
+
+The API will be accessible at http://localhost:8080
+
+Endpoints
+
+Survivor Controller
+POST /survivor/registerSurvivor:
+Register a new survivor with details and an initial resource inventory.
+
+POST /survivor/registerResources:
+Register resources for a survivor.
+
+GET /survivor/getAllSurvivors:
+Retrieve all survivors.
+
+PUT /survivor/{id}/update-location:
+Update survivor location based on the provided ID.
+
+GET /survivor/getSurvivorStatus:
+Get the infected status of a survivor.
+
+GET /survivor/getSurvivorPercentage:
+Get the percentage of infected and non-infected survivors.
+
+GET /survivor/getInfectedSurvivors:
+Get a list of infected survivors.
+
+GET /survivor/getNonInfectedSurvivors:
+Get a list of non-infected survivors.
+
+Robots Controller
+GET /robots/all:
+Retrieve a list of robots from the Robot CPU system.
+Resources Used
+Spring Boot
+PostgreSQL
+Gradle
+IntelliJ IDEA
+RestTemplate for API integration
